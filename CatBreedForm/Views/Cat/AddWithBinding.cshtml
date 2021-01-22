@@ -1,0 +1,41 @@
+﻿@model Cat
+@{
+    ViewData["Title"] = "Add new cat with binding";
+}
+
+<h1>Cat with Model Binding</h1>
+
+@if (ViewData["Message"] == null)
+{
+    <form method="post">
+        <div class="form-group">
+            <label asp-for="OwnerName"></label>
+            <input asp-for="OwnerName" class="form-control" />
+            <span asp-validation-for="OwnerName"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="CatName"></label>
+            <input asp-for="CatName" class="form-control" />
+            <span asp-validation-for="CatName"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="CatBirthDate"></label>
+            <input asp-for="CatBirthDate" class="form-control" />
+            <span asp-validation-for="CatBirthDate"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="CatBreed"></label>
+            <input asp-for="CatBreed" class="form-control" />
+            <span asp-validation-for="CatBreed"></span>
+        </div>
+
+        <input class="btn btn-primary" type="submit" value="Add cat" />
+    </form>
+}
+else 
+{
+    <h2>@ViewData["Message"]</h2>
+}
