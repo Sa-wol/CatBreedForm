@@ -21,11 +21,27 @@ namespace CatBreedForm.Controllers
             kitty.CatName = form["cat_name"];
             kitty.CatBirthDate = Convert.ToDateTime(form["cat_dob"]);
             kitty.CatBreed = form["cat_breed"];
-
-            // ADD TO DATABASE
+            // ADD DATBASE HERE
 
             ViewData["Added"] = kitty.CatName + " has been added.     =＾● ⋏ ●＾=";
 
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult AddWithBinding()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult AddWithBinding(Cat feline)
+        {
+            if (ModelState.IsValid)
+            {
+                ViewData["Message"] = $"{feline.CatName} was added.     =＾● ⋏ ●＾=";
+                // ADD DATABASE HERE
+            }
             return View();
         }
     }
