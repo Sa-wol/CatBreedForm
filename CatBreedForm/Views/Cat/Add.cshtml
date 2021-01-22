@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "Add new cat";
+}
+
+@if (ViewData["Added"] == null)
+{
+    <h1>Add new cat</h1>
+
+    <form method="post">
+        <div class="form-group">
+            <label>Owner's Name</label>
+            <input class="form-control" type="text" name="owner_name" />
+        </div>
+
+        <div class="form-group">
+            <label>Cat's Name</label>
+            <input class="form-control" type="text" name="cat_name" />
+        </div>
+
+        <div class="form-group">
+            <label>Cat's Birth Date</label>
+            <input class="form-control" type="text" name="cat_dob" />
+        </div>
+
+        <div class="form-group">
+            <label>Cat Breed</label>
+            <input class="form-control" type="text" name="cat_breed" />
+        </div>
+
+        <input type="submit" value="Add a cat" />
+    </form>
+}
+else
+{
+    <div class="alert alert-success">@ViewData["Added"]</div>
+}
